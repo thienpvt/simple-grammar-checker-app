@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  ports:
+    - port: 8888
+      targetPort: backend-port
+      protocol: TCP
+  selector:
+    app: backend
+  type: ClusterIP

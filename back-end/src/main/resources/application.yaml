@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: SS2
+    group: 6
+    author: Thienpv
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  datasource:
+    url: jdbc:mysql://mydb:3306/ss2_final
+    username: root
+    password: 1234
+  devtools:
+    restart:
+      enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+server:
+  port: 8888
+  servlet:
+    context-path: /api

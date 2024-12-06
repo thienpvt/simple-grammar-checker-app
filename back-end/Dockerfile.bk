@@ -1,0 +1,13 @@
+# Maven build container
+FROM maven:3.9.8-amazoncorretto-17 AS maven_build
+WORKDIR /tmp/
+COPY pom.xml /tmp/
+RUN mvn dependency:go-offline
+COPY src /tmp/src/
+RUN mvn package -Dmaven.test.skip=true
+
+#pull base image
+FROM amazoncorretto:17-alpine3.17
+COPY --from=maven_build /tmp/target/*.jar ./app.jar
+EXPOSE 8888
+ENTRYPOINT [ "java","-jar","app.jar","-d64","-Xms64M","-Xmx512M" ]
