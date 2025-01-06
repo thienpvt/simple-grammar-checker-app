@@ -29,7 +29,6 @@ Simple app using TogetherAI with some core functions like Grammarly
 
 ## 🎯 Features  
 - **User Authentication**: Secure login.  
-- **Real-Time Chat**: Engaging and interactive user experience.  
 - **Analytics Dashboard**: Monitor and visualize insights.  
 
 ---
